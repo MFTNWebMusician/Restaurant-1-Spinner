@@ -7,12 +7,13 @@ import Header from './layout/Header';
 import AppRouter from './router/AppRouter';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+import { FaArrowDown } from "react-icons/fa";
 
 function App() {
  
   const [foods, setFoods]=useState([])
   const [foodInfo, setFoodInfo]=useState({})
+  const [spinValue, setSpinValue]=useState(0)
   console.log(foodInfo)
 
   const getBreakfast=()=>{
@@ -43,25 +44,35 @@ function App() {
   return (
     <div className="App">
       {/* <Header /> */}
-      <div className='container-fluid position-relative border'>
-        <div className='row position-absolute w-100 back bg-danger'>
-          <div className='col-5 text-start border border-dark d-flex flex-column justify-content-center pb-5 ps-5'>
+      <img src={foodInfo?.image} width={300} className='position-absolute foodinfo-image' />
+      <div className='container-fluid position-relative'>
+      
+        <div className='row position-absolute w-100 back' style={{backgroundColor:foodInfo?.theme}}>
+          <div className='col-4 text-start d-flex flex-column justify-content-end pb-5 ps-5'>
               <h3>{foodInfo?.price}</h3>
               <h2>{foodInfo?.name}</h2>
               <p>{foodInfo?.description}</p>
               <button className='btn btn-dark w-50'>Order Now</button>
           </div>
+
+          <div className='col-8 d-flex align-items-end'>
+            <div className='w-100 d-flex justify-content-between pe-5 pb-4'>
+            <button className='btn btn-dark rounded-circle' onClick={()=>setSpinValue(spinValue - 60)}><FaArrowDown /></button>
+            <button className='btn btn-dark rounded-circle me-4' onClick={()=>setSpinValue(spinValue + 60)}><FaArrowDown /></button>
+            </div>
+          </div>
         </div>
-        <div className='row food-pages-container w-100 position-absolute border bg-warning border-primary d-flex justify-content-end'>
+        <div className='row food-pages-container w-100 position-absolute border bg-light border-primary d-flex justify-content-end'>
           
-          <div className='col-7 borde border-primar plate-spinner'>
-            <div className='row rounded-circle border h-100 position-relative plates p-0'>
+          <div className='col-7 borde border-primar plate-spinner' style={{transform:`rotate(${spinValue}deg)`, transition:'1s'}}>
+          
+            <div className='row rounded-circle  h-100 position-relative plates p-0'>
               {
                 foods.map((food)=>{
                   return(
                     <div className='col-3 rounded-circle position-absolute p-3'>
                       <div className='row'>
-                        {/* <h4 className=''>{food.name}</h4> */}
+                        
                         <img src={food.image} className='w-100 object-fit-cover' onClick={()=>setFoodInfo(food)}/>
                       </div>
                     </div>

@@ -15,13 +15,17 @@
   height:761px;
   margin-top: 90px !important;
   margin-right: 100px;
-  animation-name: rotate;
+  /* animation-name: rotate; */
   animation-duration: 10s;
 }
 
 @keyframes rotate{
   from{transform: rotate(0);}
   to{transform: rotate(360deg);}
+}
+
+.plates {
+  border: 2px dashed red;
 }
 
 .plates div:nth-child(2){
@@ -35,7 +39,7 @@
 
 .plates div:nth-child(4){
   right: -100px;
-  top: 300px;
+  top: 295px;
 }
 
 .plates div:nth-child(5){
@@ -55,9 +59,15 @@
 
 .plates div:last-child{
   left: -100px;
-  top: 300px;
+  top: 280px;
 }
 
+
+.foodinfo-image{
+  bottom: 0;
+  right: 330px;
+  z-index: 1000;
+}
 
 
 
