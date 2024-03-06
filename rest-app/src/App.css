@@ -66,9 +66,12 @@
 .foodinfo-image{
   bottom: 0;
   right: 330px;
-  z-index: 1000;
+  z-index: 15;
 }
 
+.category-btns{
+  z-index: 20;
+}
 
 
 .App {

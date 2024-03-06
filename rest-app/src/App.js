@@ -16,8 +16,8 @@ function App() {
   const [spinValue, setSpinValue]=useState(0)
   console.log(foodInfo)
 
-  const getBreakfast=()=>{
-    axios.get('https://flvxlsycpoxwclnqfrvr.supabase.co/rest/v1/Restaurant?category=eq.Breakfast&select=*',
+  const getFoods=(category)=>{
+    axios.get(`https://flvxlsycpoxwclnqfrvr.supabase.co/rest/v1/Restaurant?category=eq.${category}&select=*`,
     {
       headers:{
         apiKey:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsdnhsc3ljcG94d2NsbnFmcnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkxMjM4NDAsImV4cCI6MjAyNDY5OTg0MH0.6_-pdewIM3-_Ai2IGf1yhlOjeWZU9rta-l7oN35FDUs',
@@ -29,8 +29,10 @@ function App() {
     .catch((err)=>console.log(err))
   }
 
+  const categories=['Breakfast', 'Lunch', 'Dinner']
+
   useEffect(()=>{
-    getBreakfast()  
+    getFoods('Breakfast')  
   },[])
 
   useEffect(()=>{
@@ -46,6 +48,19 @@ function App() {
       {/* <Header /> */}
       <img src={foodInfo?.image} width={300} className='position-absolute foodinfo-image' />
       <div className='container-fluid position-relative'>
+      <div className='row border-border-danger w-100 category-btns position-absolute'>
+        {
+          categories.map((categoryName)=>{
+              return(
+                <div className='col-4'>
+                  <button className='btn btn-dark w-100' onClick={()=>getFoods(categoryName)}>
+                  {categoryName}
+                  </button>
+                </div>
+              )
+          })
+        }
+      </div>
       
         <div className='row position-absolute w-100 back' style={{backgroundColor:foodInfo?.theme}}>
           <div className='col-4 text-start d-flex flex-column justify-content-end pb-5 ps-5'>
