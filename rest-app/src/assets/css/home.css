@@ -1,0 +1,84 @@
+.food-pages-container{
+    height: 100vh;
+    clip-path: circle(50% at 65% 7%);
+    z-index: 10;
+    padding-top: 100px;
+    overflow: hidden;
+  }
+  
+  .back{
+    height: 100vh;
+    z-index: 5;
+  }
+  
+  .plate-spinner{
+    height:761px;
+    margin-top: 90px !important;
+    margin-right: 100px;
+    /* animation-name: rotate; */
+    animation-duration: 10s;
+  }
+  
+  @keyframes rotate{
+    from{transform: rotate(0);}
+    to{transform: rotate(360deg);}
+  }
+  
+  .plates {
+    border: 2px dashed red;
+  }
+  
+  .plates div:nth-child(2){
+    left: 280px;
+    top: -110px;
+  }
+  
+  .plates div:nth-child(3){
+    right: 0;
+  }
+  
+  .plates div:nth-child(4){
+    right: -100px;
+    top: 295px;
+  }
+  
+  .plates div:nth-child(5){
+    right: 0;
+    bottom: 0;
+  }
+  
+  .plates div:nth-child(6){
+    right: 280px;
+    bottom: -110px;
+  }
+  
+  .plates div:nth-child(7){
+    left: 0;
+    bottom: 0;
+  }
+  
+  .plates div:last-child{
+    left: -100px;
+    top: 280px;
+  }
+  
+  
+  .foodinfo-image{
+    bottom: 0;
+    right: 330px;
+    z-index: 15;
+  }
+  
+  .category-btns{
+    z-index: 30;
+    left: 300px;
+  }
+  
+
+  .food-info-price{
+    font-size: 50px;
+  }
+
+  .food-info-name{
+    font-size: 55px;
+  }
