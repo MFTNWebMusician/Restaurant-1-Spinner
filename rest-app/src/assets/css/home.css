@@ -82,3 +82,58 @@
   .food-info-name{
     font-size: 55px;
   }
+
+
+  @media (max-width:768px){
+    .food-pages-container{
+      height: 100vh;
+      clip-path: circle(50% at 78% 20%);
+      /* clip-path: none; */
+      z-index: 10;
+      padding-top: 150px;
+      overflow: hidden;
+    }
+
+    .plate-spinner{
+      /* border: 1px solid red; */
+      height:446px;
+      margin-top: 90px !important;
+      margin-right: 40px;
+      /* animation-name: rotate; */
+      animation-duration: 10s;
+    }
+
+    .food-info-price{
+      font-size: 35px;
+    }
+  
+    .food-info-name{
+      font-size: 35px;
+    }
+
+    .foodinfo-image{
+      bottom: 0;
+      right: 140px;
+      z-index: 15;
+    }
+
+    .plates div:nth-child(2){
+      left: 170px;
+      top: -70px;
+    }
+
+    .plates div:nth-child(4){
+      right: -70px;
+      top: 165px;
+    }
+
+    .plates div:nth-child(6){
+      right: 170px;
+      bottom: -70px;
+    }
+
+    .plates div:last-child{
+      left: -80px;
+      top: 170px;
+    }
+  }

@@ -75,7 +75,7 @@ const Home = () => {
               <h2 className='food-info-price'>{foodInfo?.price}$</h2>
               <h2 className='food-info-name'>{foodInfo?.name}</h2>
               <p className='fw-bold'>{foodInfo?.description}</p>
-              <button className='btn btn-dark w-50'>Order Now</button>
+              <button className='btn btn-dark w-50'>Add to Cart</button>
           </div>
 
           <div className='col-8 d-flex align-items-end'>
@@ -87,7 +87,7 @@ const Home = () => {
         </div>
         <div className='row food-pages-container w-100 position-absolute border bg-light border-primary d-flex justify-content-end'>
           
-          <div className='col-7 borde border-primar plate-spinner' style={{transform:`rotate(${spinValue}deg)`, transition:'1s'}}>
+          <div className='col-7 plate-spinner' style={{transform:`rotate(${spinValue}deg)`, transition:'1s'}}>
           
             <div className='row rounded-circle  h-100 position-relative plates p-0'>
               {
