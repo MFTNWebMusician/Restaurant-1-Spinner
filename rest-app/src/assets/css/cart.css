@@ -1,0 +1,9 @@
+.cart-food-box{
+    height: 310px;
+}
+
+
+@media (max-width:768px) {
+    .cart-food-box{
+        height: 170px;
+    }}

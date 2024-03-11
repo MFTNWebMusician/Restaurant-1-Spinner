@@ -3,12 +3,14 @@ import '../assets/css/home.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaArrowDown } from "react-icons/fa";
+import { useCart } from 'react-use-cart';
 
 const Home = () => {
 
     const [foods, setFoods]=useState([])
     const [foodInfo, setFoodInfo]=useState({})
     const [spinValue, setSpinValue]=useState(0)
+    const {addItem}=useCart()
     console.log(foodInfo)
   
     const getFoods=(category)=>{
@@ -75,7 +77,7 @@ const Home = () => {
               <h2 className='food-info-price'>{foodInfo?.price}$</h2>
               <h2 className='food-info-name'>{foodInfo?.name}</h2>
               <p className='fw-bold'>{foodInfo?.description}</p>
-              <button className='btn btn-dark w-50'>Add to Cart</button>
+              <button className='btn btn-dark w-50' onClick={()=>addItem(foodInfo)}>Add to Cart</button>
           </div>
 
           <div className='col-8 d-flex align-items-end'>

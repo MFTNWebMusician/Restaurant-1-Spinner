@@ -3,7 +3,10 @@
   height: 40px;
 }
 
-
+.total-items{
+  top: 0;
+  right: 90px;
+}
 
 .App {
   text-align: center;

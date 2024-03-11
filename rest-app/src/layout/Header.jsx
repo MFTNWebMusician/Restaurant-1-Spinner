@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { useCart } from 'react-use-cart';
 
 
 const Header = () => {
+  const {totalItems}=useCart()
   return (
     <>
       <header>
@@ -14,8 +16,9 @@ const Header = () => {
                 <Link className='nav-link' to='/'><h3>FoodSpin</h3></Link> 
               </div>
                 
-              <div className="col-2 mt-1">
-                <Link className='nav-link' to='/cart'><MdOutlineShoppingBag size={30}/></Link> 
+              <div className="col-2 mt-1 position-relative">
+                <Link className='nav-link' to='/cart'><MdOutlineShoppingBag size={30}/></Link>
+                <h6 className='position-absolute bg-danger total-items rounded-circle'>{totalItems}</h6> 
               </div>
    
             </div>
